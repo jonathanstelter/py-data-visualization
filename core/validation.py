@@ -1,3 +1,4 @@
+import os
 import hashlib
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
@@ -7,10 +8,12 @@ def check(your_answer):
     hex_dig = hash_object.hexdigest()
     if hex_dig == '1f00098bf5baa73ab29931c4a8cd1dd1d6555c410492cc9aa50ffaf3d2fd5859':
         #print('Congratulations! You are a python data visualization expert.')
-        img = mpimg.imread('./data/validation/congrats.png')
+        img = mpimg.imread(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                           '../data/validation/congrats.png'))
     else:
         #print('Wrong answer. Please try again.')
-        img = mpimg.imread('./data/validation/try_again.png')
+        img = mpimg.imread(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                           '../data/validation/try_again.png'))
         
     fig, ax = plt.subplots(1, 1, figsize=(5,5))
     ax.imshow(img)
